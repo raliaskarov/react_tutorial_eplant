@@ -1,3 +1,5 @@
+// src/ProductList.jsx
+
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
@@ -214,11 +216,11 @@ function ProductList() {
     ];
    const styleObj={
     backgroundColor: '#4CAF50',
-    color: '#fff!important',
+    color: '#fff',
     padding: '15px',
     display: 'flex',
     justifyContent: 'space-between',
-    alignIems: 'center',
+    alignItems: 'center',
     fontSize: '20px',
    }
    const styleObjUl={
@@ -236,7 +238,7 @@ function ProductList() {
     e.preventDefault();
     setShowCart(true); // Set showCart to true when cart icon is clicked
 };
-const handlePlantsClick = (e) => {
+    const handlePlantsClick = (e) => {
     e.preventDefault();
     setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
     setShowCart(false); // Hide the cart when navigating to About Us
@@ -268,7 +270,23 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
-
+            {plantsArray.map((categoryItem, categoryIndex) => (
+                <div className='product-grid' key={categoryIndex}>
+                    <div className='text'><h2>{categoryItem.category}</h2></div>
+                    <div className='product-list'>
+                        {categoryItem.plants.map((plant, plantIndex) => 
+                            <div className='product-card' key={plantIndex}>
+                                    <div className='product-title'>{plant.name}</div>
+                                    <div className='product-image'>
+                                        <img src={plant.image} alt={plant.name}/>
+                                    </div>
+                                    <div className='product-price'>{plant.cost}</div>
+                                    <div>{plant.description}</div>
+                                </div>
+                                )}
+                    </div>
+                </div>
+            ))}
 
         </div>
  ) :  (

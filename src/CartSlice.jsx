@@ -1,3 +1,4 @@
+// src/CartSlice.jsx
 import { createSlice } from '@reduxjs/toolkit';
 
 export const CartSlice = createSlice({

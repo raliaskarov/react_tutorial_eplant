@@ -97,6 +97,12 @@ body {
     height: 200px; /* Adjust height for better consistency */
 }
 
+.product-image img {
+    width: 100%;   /* Make the image fill the container's width */
+    height: 100%;  /* Make the image fill the container's height */
+    object-fit: contain; /* Ensure the image scales down to fit without being cropped */
+}
+
 .product-button {
     background-color: #e74c3c;
     color: #fff;
