@@ -248,6 +248,12 @@ function ProductList() {
     e.preventDefault();
     setShowCart(false);
   };
+
+  const [addedToCart, setAddedToCart] = useState(false);
+  const handleAddToCart = () => {
+    setAddedToCart(true);
+    console.log("added to cart");
+  };
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -282,6 +288,11 @@ function ProductList() {
                                     </div>
                                     <div className='product-price'>{plant.cost}</div>
                                     <div>{plant.description}</div>
+                                    <button
+                                        className='product-button'
+                                        onClick={() => handleAddToCart(plant)}>
+                                            Add to Cart
+                                    </button>
                                 </div>
                                 )}
                     </div>
