@@ -3,6 +3,9 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import { useSelector, useDispatch } from "react-redux";
+import { addItem } from "./CartSlice"
+
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
@@ -15,7 +18,7 @@ function ProductList() {
                     name: "Snake Plant",
                     image: "https://cdn.pixabay.com/photo/2021/01/22/06/04/snake-plant-5939187_1280.jpg",
                     description: "Produces oxygen at night, improving air quality.",
-                    cost: "$15"
+                    cost: "$15",
                 },
                 {
                     name: "Spider Plant",
@@ -249,11 +252,19 @@ function ProductList() {
     setShowCart(false);
   };
 
+  const dispatch = useDispatch();
+
   const [addedToCart, setAddedToCart] = useState(false);
-  const handleAddToCart = () => {
-    setAddedToCart(true);
-    console.log("added to cart");
+  const handleAddToCart = (product) => {
+    dispatch(addItem(product));
+    setAddedToCart((prevState) => ({
+        ...prevState,
+        [product.name]: true
+    }));
+    console.log("added to cart", {product});
   };
+
+
     return (
         <div>
              <div className="navbar" style={styleObj}>
