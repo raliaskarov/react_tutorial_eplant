@@ -38,13 +38,13 @@
 
 .landing_content {
  margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
+  margin-left: 50px;
+  transform: translate(-5%, -50%);
   z-index: 1;
   text-align: center;
   /* background-color: red; */
   width: 400px;
-  height: 400px;
+  height: 500px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -124,7 +124,8 @@
 
   .landing_content {
     margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
+    margin-left: 10px;
+    background-color: red;
     width: 80%; /* Adjust as needed */
     text-align: center;
   }
